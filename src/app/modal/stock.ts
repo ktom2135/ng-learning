@@ -1,12 +1,31 @@
 export class Stock {
-    favorite: boolean = false;
+    public favorite: boolean = false;
+    private diff: number;
+    public largeChange: boolean;
+    public stockClass;
+
+
     constructor(
         public name: string,
         public code: string,
         public price: number,
-        public previousPrice: number){}
-
-        isPositiveChange()  : boolean{
-            return this.price >= this.previousPrice;
+        public previousPrice: number) {
+        this.diff = (this.price - this.previousPrice) - 1;
+        this.largeChange = Math.abs(this.diff) > 0.01;
+        this.stockClass = {
+            "positive": this.isPositiveChange(),
+            "negative": !this.isPositiveChange(),
+            "large-change": this.largeChange,
+            "small-change": !this.largeChange
         }
+    }
+
+    isPositiveChange(): boolean {
+        return this.price >= this.previousPrice;
+    }
+
+    toggleFavorite(event) {
+        console.log('We are toggling the favorite state for this stock', event);
+        this.favorite = !this.favorite;
+    }
 }
