@@ -1,0 +1,16 @@
+
+.positive{
+    color: rebeccapurple;
+}
+
+.negative{
+    color: royalblue;
+}
+
+.large-change{
+    font-size: 2.2em;
+}
+
+.small-change{
+    font-size: 0.8em;
+}
