@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Stock } from 'src/app/modal/stock';
 
 import { StockItemComponent } from './stock-item.component';
 
@@ -16,6 +17,7 @@ describe('StockItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StockItemComponent);
     component = fixture.componentInstance;
+    component.stock = new Stock("stock", "code", 1,1);
     fixture.detectChanges();
   });
 
