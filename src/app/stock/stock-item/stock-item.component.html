@@ -5,5 +5,6 @@
     <div class="price" [ngClass]="stock.stockClass">$ {{stock.price}}</div>
     <button *ngIf="!stock.favorite" (click)="onToggleFavoriteEventOnStockItem($event)" [disabled]="stock.favorite">Add
         to Favorite</button>
-    <button (click)="changeStockPrice(stock)">Change Price</button>
+    <button (click)="changeStockPrice()">Change Price</button>
+    <button (click)="destroyStockPrice()">Destroy</button>
 </div>

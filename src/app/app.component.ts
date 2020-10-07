@@ -1,4 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+  OnChanges,
+  OnDestroy,
+  DoCheck,
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked
+} from '@angular/core';
 import { Stock } from './modal/stock';
 
 @Component({
@@ -6,12 +19,19 @@ import { Stock } from './modal/stock';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,
+  OnChanges,
+  OnDestroy,
+  DoCheck,
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked {
   public stockObj: Stock;
   title = 'stock-market';
 
   ngOnInit(): void {
     this.stockObj = new Stock('Test Stock Company', 'TSC', 85, 80);
+    console.log("========================  ngOnInit :: AppComponent ========================");
   }
 
   onToggleFavoriteEventOnAppComponent($event): void {
@@ -25,4 +45,33 @@ export class AppComponent implements OnInit {
   changeStockPrice(): void {
     this.stockObj.price += 10;
   }
+
+  ngAfterContentChecked(): void {
+    console.log("========================  ngAfterContentChecked :: AppComponent========================");
+  }
+
+  ngAfterContentInit(): void {
+    console.log("========================  ngAfterContentInit :: AppComponent========================");
+
+  }
+
+  ngAfterViewChecked(): void {
+    console.log("========================  ngAfterViewChecked :: AppComponent========================");
+
+  }
+
+  ngDoCheck(): void {
+    console.log("========================  ngDoCheck :: AppComponent========================");
+
+  }
+
+  ngOnChanges(): void {
+    console.log("========================  ngOnChanges :: AppComponent========================");
+
+  }
+
+  ngOnDestroy(): void {
+    console.log("========================  ngOnChanges :: AppComponent========================");
+  }
+
 }

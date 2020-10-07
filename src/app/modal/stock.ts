@@ -3,8 +3,7 @@ export class Stock {
     private diff: number;
     public largeChange: boolean;
     public stockClass;
-
-
+    public destroy: boolean;
     constructor(
         public name: string,
         public code: string,
@@ -18,6 +17,7 @@ export class Stock {
             "large-change": this.largeChange,
             "small-change": !this.largeChange
         }
+        this.destroy = false;
     }
 
     isPositiveChange(): boolean {

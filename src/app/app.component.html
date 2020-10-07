@@ -2,7 +2,7 @@
   <h1 class="positive">
     Welcome to {{title}}!
   </h1>
-  <app-stock-item [stock]="stockObj" (toggleFavoriteOutputOnStockItem)="onToggleFavoriteEventOnAppComponent($event)">
+  <app-stock-item *ngIf="!stockObj.destroy" [stock]="stockObj" (toggleFavoriteOutputOnStockItem)="onToggleFavoriteEventOnAppComponent($event)">
   </app-stock-item>
 <br/>
 <br/>
