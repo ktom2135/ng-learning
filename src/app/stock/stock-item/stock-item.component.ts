@@ -9,9 +9,9 @@ import { Stock } from './../../modal/stock'
 export class StockItemComponent implements OnInit {
 
   @Input() public stock: Stock;
-  @Output() private toggleFavorite: EventEmitter<Stock>;
+  @Output() private toggleFavoriteOutputOnStockItem: EventEmitter<Stock>;
   constructor() { 
-    this.toggleFavorite = new EventEmitter<Stock>();
+    this.toggleFavoriteOutputOnStockItem = new EventEmitter<Stock>();
   }
 
   ngOnInit(): void {
@@ -25,8 +25,8 @@ export class StockItemComponent implements OnInit {
     return stock.code;
   }
 
-  onToggleFavorite(event){
+  onToggleFavoriteEventOnStockItem(event){
     this.stock.toggleFavorite(event);
-    this.toggleFavorite.emit(this.stock);
+    this.toggleFavoriteOutputOnStockItem.emit(this.stock);
   }
 }

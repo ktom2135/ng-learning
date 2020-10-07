@@ -3,6 +3,6 @@
     Welcome to {{title}}!
   </h1>
   <app-stock-item [stock]="stockObj"
-  (toggleFavorite) = "onToggleFavorite($event)"
+  (toggleFavoriteOutputOnStockItem) = "onToggleFavoriteEventOnAppComponent($event)"
   ></app-stock-item>
 </div>
