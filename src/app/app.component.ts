@@ -45,6 +45,10 @@ export class AppComponent implements OnInit,
   changeStockPrice(): void {
     this.stockObj.price += 10;
   }
+  
+  changeStockDestroyToShow(): void{
+    this.stockObj.destroy = false;
+  }
 
   ngAfterContentChecked(): void {
     console.log("========================  ngAfterContentChecked :: AppComponent========================");
