@@ -50,6 +50,10 @@ export class AppComponent implements OnInit,
     this.stockObj.destroy = false;
   }
 
+  testMethod():void{
+    console.log("========================  testMethod from AppComponent ========================")
+  }
+
   ngAfterContentChecked(): void {
     console.log("========================  ngAfterContentChecked :: AppComponent========================");
   }
