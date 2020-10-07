@@ -14,7 +14,15 @@ export class AppComponent implements OnInit {
     this.stockObj = new Stock('Test Stock Company', 'TSC', 85, 80);
   }
 
-  onToggleFavoriteEventOnAppComponent($event): void{
+  onToggleFavoriteEventOnAppComponent($event): void {
     console.log("onToggleFavoriteEventOnAppComponent($event)");
+  }
+
+  changeStockObject(): void {
+    this.stockObj = new Stock("Stock from AppComponent", "SFA", 80, 90);
+
+  }
+  changeStockPrice(): void {
+    this.stockObj.price += 10;
   }
 }

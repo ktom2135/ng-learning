@@ -1,16 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Stock } from './../../modal/stock'
 
 @Component({
   selector: 'app-stock-item',
   templateUrl: './stock-item.component.html',
-  styleUrls: ['./stock-item.component.css']
+  styleUrls: ['./stock-item.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StockItemComponent implements OnInit {
 
   @Input() public stock: Stock;
   @Output() private toggleFavoriteOutputOnStockItem: EventEmitter<Stock>;
-  constructor() { 
+  constructor() {
     this.toggleFavoriteOutputOnStockItem = new EventEmitter<Stock>();
   }
 
@@ -21,11 +22,15 @@ export class StockItemComponent implements OnInit {
     //   new Stock('Test Stock Company', 'TSC', 85, 80)];
   }
 
-  trackStockByCode(index, stock){
+  trackStockByCode(index, stock) {
     return stock.code;
   }
 
-  onToggleFavoriteEventOnStockItem(event){
+  changeStockPrice(stock : Stock): void {
+    this.stock.price += 5;
+  }
+
+  onToggleFavoriteEventOnStockItem(event) {
     this.stock.toggleFavorite(event);
     this.toggleFavoriteOutputOnStockItem.emit(this.stock);
   }

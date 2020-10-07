@@ -3,5 +3,7 @@
         <h3>{{stock.name + '(' + stock.code +')' }} </h3>
     </div>
     <div class="price" [ngClass]="stock.stockClass">$ {{stock.price}}</div>
-    <button *ngIf="!stock.favorite" (click)="onToggleFavoriteEventOnStockItem($event)" [disabled]="stock.favorite">Add to Favorite</button>
+    <button *ngIf="!stock.favorite" (click)="onToggleFavoriteEventOnStockItem($event)" [disabled]="stock.favorite">Add
+        to Favorite</button>
+    <button (click)="changeStockPrice(stock)">Change Price</button>
 </div>
