@@ -17,7 +17,7 @@ describe('StockItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StockItemComponent);
     component = fixture.componentInstance;
-    component.stock = new Stock("stock", "code", 1,1);
+    component.stock = new Stock("stock", "code", 1,1 ,"RMB");
     fixture.detectChanges();
   });
 

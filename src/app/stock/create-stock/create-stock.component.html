@@ -1,14 +1,41 @@
 <h2>Create Stock Form</h2>
 <div class="form-group">
-    <form>
+    <form (ngSubmit)="createStock()">
         <div class="stock-name">
-            <input type="text"
-            placeholder="Stock name"
-            name="stockName"
-            [(ngModel)]="stock.name">
-            
+            <label>Stock Name: </label>
+            <input type="text" placeholder="Stock name" name="stockName" [(ngModel)]="stock.name">
         </div>
+
+        <div class="stock-code">
+            <label>Stock code: </label>
+            <input type="text" placeholder="Stock code" name="stockCode" [(ngModel)]="stock.code">
+        </div>
+        <div class="stock-price">
+            <label>Stock price: </label>
+            <input type="number" placeholder="Stock price" name="stockPrice" [ngModel]="stock.price"
+                (ngModelChange)="setStockPrice($event)">
+        </div>
+        <div class="stock-price">
+            <label>Stock previous price: </label>
+            <input type="number" placeholder="Stock price" name="stockPrice" [(ngModel)]="stock.previousPrice">
+        </div>
+        <div class="stock-exchange">
+            <div>
+                <input type="radio" name="stockExchange" [(ngModel)]="stock.exchange" value="NYSE">NYSE
+            </div>
+            <div>
+                <input type="radio" name="stockExchange" [(ngModel)]="stock.exchange" value="NASDAQ">NASDAQ
+            </div>
+            <div>
+                <input type="radio" name="stockExchange" [(ngModel)]="stock.exchange" value="OTHER">OTHER
+            </div>
+        </div>
+        <div class="stock-confirm">
+            <input type="checkbox" name="stockConfirm" [(ngModel)]="confirmed">
+            I confirmed!
+        </div>
+        <button [disabled]="!confirmed" type="submit">Create </button>
     </form>
     <button (click)="stock.name = 'test'">Reset stock name</button>
 </div>
-<h4>Stock name is {{stock.name}}</h4>
+<h4>Stock name is {{stock.name}} {{stock.exchange}}</h4>

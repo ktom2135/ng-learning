@@ -30,7 +30,7 @@ export class AppComponent implements OnInit,
   title = 'stock-market';
 
   ngOnInit(): void {
-    this.stockObj = new Stock('Test Stock Company', 'TSC', 85, 80);
+    this.stockObj = new Stock('Test Stock Company', 'TSC', 85, 80, "RMB");
     console.log("========================  ngOnInit :: AppComponent ========================");
   }
 
@@ -39,13 +39,13 @@ export class AppComponent implements OnInit,
   }
 
   changeStockObject(): void {
-    this.stockObj = new Stock("Stock from AppComponent", "SFA", 80, 90);
+    this.stockObj = new Stock("Stock from AppComponent", "SFA", 80, 90, "RMB");
 
   }
   changeStockPrice(): void {
     this.stockObj.price += 10;
   }
-  
+
   changeStockDestroyToShow(): void{
     this.stockObj.destroy = false;
   }
