@@ -11,6 +11,8 @@ export class CreateStockComponent implements OnInit {
   public stock: Stock;
   public confirmed = false;
 
+  public exchanges = ['NYSE', 'NADSAQ', 'OTHER'];
+
   constructor() {
     this.stock = new Stock("create stock", "CS", 80, 90, "OTHER");
   }
