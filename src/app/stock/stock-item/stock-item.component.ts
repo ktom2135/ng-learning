@@ -39,34 +39,34 @@ export class StockItemComponent implements OnInit,
     //   new Stock('Test Stock Company', 'TSC', 85, 80),
     //   new Stock('Test Stock Company', 'TSC', 85, 80),
     //   new Stock('Test Stock Company', 'TSC', 85, 80)];
-    console.log("========================  ngOnInit :: StockItemComponent ========================");
+    // console.log("========================  ngOnInit :: StockItemComponent ========================");
   }
 
   ngAfterContentChecked(): void{
-    console.log("========================  ngAfterContentChecked :: StockItemComponent========================");
+    // console.log("========================  ngAfterContentChecked :: StockItemComponent========================");
   }
 
   ngAfterContentInit(): void{
-    console.log("========================  ngAfterContentInit :: StockItemComponent========================");
+    // console.log("========================  ngAfterContentInit :: StockItemComponent========================");
 
   }
 
   ngAfterViewChecked(): void{
-    console.log("========================  ngAfterViewChecked :: StockItemComponent========================");
+    // console.log("========================  ngAfterViewChecked :: StockItemComponent========================");
 
   }
 
   ngDoCheck():void{
-    console.log("========================  ngDoCheck :: StockItemComponent========================");
+    // console.log("========================  ngDoCheck :: StockItemComponent========================");
 
   }
 
   ngOnChanges():void{
-    console.log("========================  ngOnChanges :: StockItemComponent========================");
+    // console.log("========================  ngOnChanges :: StockItemComponent========================");
   }
 
   ngOnDestroy():void{
-    console.log("========================  ngOnDestroy :: StockItemComponent========================");
+    // console.log("========================  ngOnDestroy :: StockItemComponent========================");
   }
 
   trackStockByCode(index) {

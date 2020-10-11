@@ -31,11 +31,11 @@ export class AppComponent implements OnInit,
 
   ngOnInit(): void {
     this.stockObj = new Stock('Test Stock Company', 'TSC', 85, 80, "RMB");
-    console.log("========================  ngOnInit :: AppComponent ========================");
+    // console.log("========================  ngOnInit :: AppComponent ========================");
   }
 
   onToggleFavoriteEventOnAppComponent($event): void {
-    console.log("onToggleFavoriteEventOnAppComponent($event)");
+    // console.log("onToggleFavoriteEventOnAppComponent($event)");
   }
 
   changeStockObject(): void {
@@ -51,35 +51,35 @@ export class AppComponent implements OnInit,
   }
 
   testMethod():void{
-    console.log("========================  testMethod from AppComponent ========================")
+    // console.log("========================  testMethod from AppComponent ========================")
   }
 
   ngAfterContentChecked(): void {
-    console.log("========================  ngAfterContentChecked :: AppComponent========================");
+    // console.log("========================  ngAfterContentChecked :: AppComponent========================");
   }
 
   ngAfterContentInit(): void {
-    console.log("========================  ngAfterContentInit :: AppComponent========================");
+    // console.log("========================  ngAfterContentInit :: AppComponent========================");
 
   }
 
   ngAfterViewChecked(): void {
-    console.log("========================  ngAfterViewChecked :: AppComponent========================");
+    // console.log("========================  ngAfterViewChecked :: AppComponent========================");
 
   }
 
   ngDoCheck(): void {
-    console.log("========================  ngDoCheck :: AppComponent========================");
+    // console.log("========================  ngDoCheck :: AppComponent========================");
 
   }
 
   ngOnChanges(): void {
-    console.log("========================  ngOnChanges :: AppComponent========================");
+    // console.log("========================  ngOnChanges :: AppComponent========================");
 
   }
 
   ngOnDestroy(): void {
-    console.log("========================  ngOnChanges :: AppComponent========================");
+    // console.log("========================  ngOnChanges :: AppComponent========================");
   }
 
 }
