@@ -17,7 +17,7 @@
              [(ngModel)]="stock.code" 
              minlength="2" 
              required
-             [ngChange]="codeChange(stockCodeTemplate)"
+             (ngModelChange)="codeChange(stockCodeTemplate)"
              #stockCodeTemplate="ngModel">
             <div *ngIf="stockCodeTemplate.dirty && stockCodeTemplate.invalid">
                 <div *ngIf="stockCodeTemplate.errors.required">
