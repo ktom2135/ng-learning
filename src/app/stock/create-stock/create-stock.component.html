@@ -1,11 +1,21 @@
 <h2>Create Stock Form</h2>
 <div class="form-group">
-    <div class="stock-name">
-        <label>Stock Name: </label>
-        <input type="text" placeholder="Stock name" name="stockName" [formControl]="nameControl">
-    </div>
+    <form [formGroup]="stockForm" (submit)="onSubmit()">
+        <div class="stock-name">
+            <label>Stock Name: </label>
+            <input type="text" placeholder="Stock name" formControlName="name">
+        </div>
+        <div>
+            <label>Stock Code:</label>
+            <input type="text" placeholder="Stock code" formControlName="code">
+        </div>
+        <div>
+            <label>Stock Price:</label>
+            <input type="number" placeholder="Stock price" formControlName="price">
+        </div>
 
-    <button (click)="onSubmit()">Submit </button>
+        <button (click)="onSubmit()">Submit </button>
+    </form>
 </div>
-<h4>Form Control value {{nameControl.value | json}}</h4>
-<h4>Form Control status {{nameControl.status | json}}</h4>
+<h4>Stock Form value {{stockForm.value | json}}</h4>
+<h4>Stock Form status {{stockForm.status | json}}</h4>
