@@ -1,51 +1,11 @@
 <h2>Create Stock Form</h2>
 <div class="form-group">
-    <form (ngSubmit)="createStock(stockFormTemplate)" #stockFormTemplate="ngForm">
-        <div class="stock-name">
-            <label>Stock Name: </label>
-            <input type="text" placeholder="Stock name" name="stockName" required #stockNameTemplate="ngModel"
-                [(ngModel)]="stock.name">
+    <div class="stock-name">
+        <label>Stock Name: </label>
+        <input type="text" placeholder="Stock name" name="stockName" [formControl]="nameControl">
+    </div>
 
-            <div *ngIf="stockNameTemplate.errors && stockNameTemplate.errors.required">
-                Stock name is Mandatory
-            </div>
-        </div>
-
-        <div class="stock-code">
-            <label>Stock code: </label>
-            <input type="text" placeholder="Stock code" name="stockCode"
-             [(ngModel)]="stock.code" 
-             minlength="2" 
-             required
-             (ngModelChange)="codeChange(stockCodeTemplate)"
-             #stockCodeTemplate="ngModel">
-            <div *ngIf="stockCodeTemplate.dirty && stockCodeTemplate.invalid">
-                <div *ngIf="stockCodeTemplate.errors.required">
-                    Stock code is Mandatory
-                </div>
-            </div>
-        </div>
-        <div class="stock-price">
-            <label>Stock price: </label>
-            <input type="number" placeholder="Stock price" name="stockPrice" [ngModel]="stock.price"
-                (ngModelChange)="setStockPrice($event)">
-        </div>
-        <div class="stock-previousPrice">
-            <label>Stock previous price: </label>
-            <input type="number" placeholder="Stock previousPrice" name="stockPreviousPrice"
-                [(ngModel)]="stock.previousPrice">
-        </div>
-        <div class="stock-exchange">
-            <select name="stockExchange" [(ngModel)]="stock.exchange">
-                <option *ngFor="let exchange of exchanges" [ngValue]="exchange">{{exchange}}</option>
-            </select>
-        </div>
-        <div class="stock-confirm">
-            <input type="checkbox" name="stockConfirm" [(ngModel)]="confirmed">
-            I confirmed!
-        </div>
-        <button [disabled]="!confirmed" type="submit">Create </button>
-    </form>
-    <button (click)="stock.name = 'test'">Reset stock name</button>
+    <button (click)="onSubmit()">Submit </button>
 </div>
-<h4>Stock name is {{stock | json }}</h4>
+<h4>Form Control value {{nameControl.value | json}}</h4>
+<h4>Form Control status {{nameControl.status | json}}</h4>

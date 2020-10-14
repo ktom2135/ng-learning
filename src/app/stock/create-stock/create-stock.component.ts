@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Stock } from 'src/app/modal/stock';
 
 @Component({
@@ -10,7 +11,7 @@ export class CreateStockComponent implements OnInit {
 
   public stock: Stock;
   public confirmed = false;
-
+  public nameControl: FormControl;
   public exchanges = ['NYSE', 'NADSAQ', 'OTHER'];
 
   constructor() {
@@ -18,7 +19,12 @@ export class CreateStockComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.nameControl = new FormControl();
 
+  }
+
+  onSubmit(): void {
+    console.log('name control value', this.nameControl.value);
   }
 
   setStockPrice(price: number): void {
