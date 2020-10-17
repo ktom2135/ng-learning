@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Stock } from 'src/app/modal/stock';
 
 @Component({
@@ -14,17 +14,16 @@ export class CreateStockComponent implements OnInit {
   public exchanges = ['NYSE', 'NADSAQ', 'OTHER'];
   public stockForm: FormGroup;
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
     this.stock = new Stock("create stock", "CS", 80, 90, "OTHER");
   }
 
   ngOnInit(): void {
-    this.stockForm = new FormGroup({
-      name: new FormControl(null, Validators.required),
-      code: new FormControl(null, [Validators.required, Validators.minLength(2)]),
-      price: new FormControl(0, [Validators.required, Validators.min(0)])
+    this.stockForm = this.fb.group ({
+      name: new FormControl(this.stock.name, Validators.required),
+      code: new FormControl(this.stock.code, [Validators.required, Validators.minLength(2)]),
+      price: new FormControl(this.stock.price, [Validators.required, Validators.min(0)])
     });
-
   }
 
   onSubmit(): void {
